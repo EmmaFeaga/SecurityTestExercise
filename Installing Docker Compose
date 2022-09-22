@@ -1,0 +1,11 @@
+You will need to install Docker Engine. To do so, copy and paste the following in your command line: 
+         sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+Test to make sure that it installed correctly, copy and paste the following in your command line:
+        sudo docker run hello-world
+        
+To run the Docker, copy and paste the following in your command line:
+        sudo docker compose up 
+        
+To view other useful Docker commands, use the --help tag:
+        sudo docker compose --help
