@@ -1,0 +1,9 @@
+Elastic Stack a group of open source products from Elastic designed to help users take data from any type of source and in any format, and search, analyze and visualize that data in real time.
+It consists of Elasticsearch, Kibana, and 
+
+To get elasticsearch for docker, copy and paste the following in the command line [this may take several minutes]:
+                 sudo docker pull docker.elastic.co/elasticsearch/elasticsearch:8.4.2
+
+Next, get elastdocker template to make things more simple. Copy and paste the following in the command line
+                 git clone https://github.com/sherifabdlnaby/elastdocker.git 
+                 cd elastdocker
