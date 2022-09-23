@@ -26,6 +26,13 @@ Verify that you can connect to your Elasticsearch cluster by making an authentic
           
           
 Steps to specifically install Elasticsearch:
+1. wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.4.2-amd64.deb
+2. wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.4.2-amd64.deb.sha512
+3. shasum -a 512 -c elasticsearch-8.4.2-amd64.deb.sha512 
+4. sudo dpkg -i elasticsearch-8.4.2-amd64.deb
+
+OR COMPLETE THESE COMMANDS BELOW
+
 1. Add GPG key of Elasticsearch's repository: 
 wget --quiet --output-document=- https://artifacts.elastic.co/GPG-KEY-elasticsearch | gpg --dearmor | sudo tee /usr/share/keyrings/elasticsearch-archive-keyring.gpg
 
@@ -54,5 +61,3 @@ sudo systemctl start elasticsearch
 
 9. Query Elasticsearch service to test if installation was successful:
 curl 127.0.0.1:9200
-
-
