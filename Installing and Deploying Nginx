@@ -11,7 +11,7 @@
 6. sudo docker run --name mynginx1 -P -d -v local_dir:container_dir nginx_image nginx [This step is optional. This is if you want to deploy your own container]
             e.g., sudo docker run --name mynginx -P -d -v ~/Desktop/html:/usr/share/nginx/html nginx
 
-7. sudo docker ps
+7. sudo docker ps -a [View that nginx container exists]
 
 8. sudo docker stop mynginx1
 
