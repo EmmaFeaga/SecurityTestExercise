@@ -5,6 +5,12 @@ In other words, it is used to auto setup docker containers and configurations.
 You will need to install Docker Engine. To do so, copy and paste the following in your command line: 
         sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
+Install docker and docker-compose, copy and paste the following in your command line:
+        sudo apt install docker-compose
+        
+Then add your user to the docker group:
+        sudo usermod -aG docker $USER (e.g., emma)
+
 Test to make sure that it installed correctly, copy and paste the following in your command line:
         sudo docker run hello-world
         
