@@ -1,5 +1,29 @@
 Before beginning these steps, make sure that you have all of the tools and products you need installed on your VM. You should have:
-      1. Docker Compose (
-      2. Elastick stack
+      1. Docker Compose 
+      2. Elastick stack (I recommend downloading the elastdocker template to simplify things - git clone https://github.com/sherifabdlnaby/elastdocker.git)
       3. Nginx
 
+NOTE: If you are not set as root, you will need to execute your commands with 'sudo' in front.
+
+Note: By default, Elastic Stack exposes the following ports:
+5000: Logstash TCP input.
+9200: Elasticsearch HTTP
+9300: Elasticsearch TCP transport
+5601: Kibana
+
+
+Step 1: Start up the Elastic Stack using Docker Compose:
+      sudo docker-compose up
+
+You can also choose to run it in background (detached mode):
+      sudo docker-compose up -d
+      
+Step 2: Go to your web browser of choice and navigate to kibana
+      http://localhost:5601 
+
+Step 3: Now you will want to generate a container. In this case, we are using the name Ngnix:
+      sudo docker run nginx
+   
+Step 4: Go back to your web browser to view the incoming data/logs
+
+Step 5: I think you can also use logstash to generate logs as well but I have not gotten that far.
