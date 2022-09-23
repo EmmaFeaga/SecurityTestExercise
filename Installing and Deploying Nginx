@@ -1,0 +1,20 @@
+sudo service docker status
+
+sudo docker info
+
+sudo docker run --name mynginx -P -d nginx
+
+sudo docker ps
+
+Go to Firefox --> http://localhost:49153 OR curl http://localhost:49153
+
+Find index.html file, then cat index.html
+
+sudo docker run --name mynginx1 -P -d -v local_dir:container_dir nginx_image nginx
+e.g., sudo docker run --name mynginx -P -d -v ~/Desktop/html:/usr/share/nginx/html nginx
+
+sudo docker ps
+
+sudo docker stop mynginx1
+
+sudo docker -a
