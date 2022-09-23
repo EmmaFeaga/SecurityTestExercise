@@ -22,3 +22,37 @@ Copy the http_ca.crt security certificate from your Docker container to your loc
 Verify that you can connect to your Elasticsearch cluster by making an authenticated call, using the http_ca.crt file that you copied from your Docker container:
           curl --cacert http_ca.crt -u elastic https://localhost:9200
           <ENTER NEW PASSWORD FROM 2 STEPS ABOVE> 
+          
+          
+          
+Steps to specifically install Elasticsearch:
+1. Add GPG key of Elasticsearch's repository: 
+wget --quiet --output-document=- https://artifacts.elastic.co/GPG-KEY-elasticsearch | gpg --dearmor | sudo tee /usr/share/keyrings/elasticsearch-archive-keyring.gpg
+
+2. Add Elasticsearch's repository to apt's:
+echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+Result: deb https://artifacts.elastic.co/packages/7.x/apt stable main
+
+3. Update list of available packages from the newly added repository:
+sudo apt update
+
+4. Install latest Java Runtime Environment:
+sudo apt install -y default-jre
+
+5. Install Elasticsearch package using apt:
+sudo apt install -y elasticsearch
+
+6. Enable access to port 9200 and 9300 from the local firewall:
+sudo ufw allow 9200
+sudo ufw allow 9300
+
+7. Configure Elasticsearch to automatically start during boot:
+sudo systemctl enable elasticsearch
+
+8. Start Elasticsearch service:
+sudo systemctl start elasticsearch
+
+9. Query Elasticsearch service to test if installation was successful:
+curl 127.0.0.1:9200
+
+
