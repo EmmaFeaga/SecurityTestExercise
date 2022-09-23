@@ -1,20 +1,18 @@
-sudo service docker status
+1. sudo service docker status [Make sure that Docker us active]
 
-sudo docker info
+2. sudo docker info [This step is optional]
 
-sudo docker run --name mynginx -P -d nginx
+3. sudo docker run --name mynginx -P -d nginx [run the container (mynginx), map the ports (-P), detatch mode (-d)]
 
-sudo docker ps
+4. sudo docker ps [Confirm the docker image has been created and deployed - you get the port number here]
 
-Go to Firefox --> http://localhost:49153 OR curl http://localhost:49153
+5. Go to Firefox --> http://localhost:49153 OR curl http://localhost:49153 [Check to see if it is up and running on the web]
 
-Find index.html file, then cat index.html
+6. sudo docker run --name mynginx1 -P -d -v local_dir:container_dir nginx_image nginx [This step is optional. This is if you want to deploy your own container]
+            e.g., sudo docker run --name mynginx -P -d -v ~/Desktop/html:/usr/share/nginx/html nginx
 
-sudo docker run --name mynginx1 -P -d -v local_dir:container_dir nginx_image nginx
-e.g., sudo docker run --name mynginx -P -d -v ~/Desktop/html:/usr/share/nginx/html nginx
+7. sudo docker ps
 
-sudo docker ps
+8. sudo docker stop mynginx1
 
-sudo docker stop mynginx1
-
-sudo docker -a
+9. sudo docker -a [View all instances created and their log information]
