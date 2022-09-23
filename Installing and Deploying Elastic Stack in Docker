@@ -1,0 +1,24 @@
+Elastic Stack a group of open source products from Elastic designed to help users take data from any type of source and in any format, and search, analyze and visualize that data in real time.
+It consists of Elasticsearch and Kibana.
+
+To get elasticsearch for docker, copy and paste the following in the command line [this may take several minutes]:
+         sudo docker pull docker.elastic.co/elasticsearch/elasticsearch:8.4.2
+
+Next, get elastdocker template to make things more simple:
+         git clone https://github.com/sherifabdlnaby/elastdocker.git 
+
+To view the files and directories that came with the template, change directories:
+         cd elastdocker
+
+Create a Docker Network for elasticsearch and kibana:
+         sudo docker network create elastic
+         
+Start Elasticsearch in Docker. A password is generated for the elastic user and output to the terminal, plus an enrollment token for enrolling Kibana. Copy the password somewhere safe
+         docker run --name es01 --net elastic -p 9200:9200 -p 9300:9300 -it docker.elastic.co/elasticsearch/elasticsearch:8.4.2
+
+Copy the http_ca.crt security certificate from your Docker container to your local machine:
+         docker cp es01:/usr/share/elasticsearch/config/certs/http_ca.crt .
+
+Verify that you can connect to your Elasticsearch cluster by making an authenticated call, using the http_ca.crt file that you copied from your Docker container:
+          curl --cacert http_ca.crt -u elastic https://localhost:9200
+          <ENTER NEW PASSWORD FROM 2 STEPS ABOVE> 
