@@ -27,3 +27,5 @@ Step 3: Now you will want to generate a container. In this case, we are using th
 Step 4: Go back to your web browser to view the incoming data/logs
 
 Step 5: I think you can also use logstash to generate logs as well but I have not gotten that far.
+
+** This is all I have for now :) **
